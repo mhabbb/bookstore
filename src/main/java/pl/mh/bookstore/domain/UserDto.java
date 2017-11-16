@@ -1,9 +1,13 @@
 package pl.mh.bookstore.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
+@Getter
+@Setter
 public class UserDto {
     @NotEmpty
     private String login;
@@ -26,29 +30,6 @@ public class UserDto {
     @NotEmpty
     private String emailConfirm;
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getPassword() {
         return password;
