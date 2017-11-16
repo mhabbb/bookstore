@@ -32,5 +32,5 @@ dependencies {
 	runtime('mysql:mysql-connector-java')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.security:spring-security-test')
+	compile group: 'org.webjars', name: 'jquery', version: '3.2.1'
 }
