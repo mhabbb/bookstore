@@ -13,6 +13,7 @@ import pl.mh.bookstore.domain.User;
 import pl.mh.bookstore.domain.UserDto;
 import pl.mh.bookstore.repository.UserRepository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,32 +21,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RegisterService implements UserDetailsService {
-
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-
-    public User save(UserDto userDto){
-        User user = new User();
-        user.setLogin(userDto.getLogin());
-        user.setFirstName(userDto.getFirstName());
-        user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
-        return userRepository.save(user);
-    }
-
-    public User findByEmail(String email){
-        return userRepository.findByEmail(email);
-    }
-
-    public User findByLogin(String login){
-        return userRepository.findByLogin(login);
-    }
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
@@ -62,4 +41,5 @@ public class RegisterService implements UserDetailsService {
                 .map(role -> new SimpleGrantedAuthority(role.getRole()))
                 .collect(Collectors.toList());
     }
+
 }

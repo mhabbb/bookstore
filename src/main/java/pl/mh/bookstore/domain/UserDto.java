@@ -30,6 +30,9 @@ public class UserDto {
     @NotEmpty
     private String emailConfirm;
 
+    @NotEmpty
+    private String cardNumber;
+
 
     public String getPassword() {
         return password;

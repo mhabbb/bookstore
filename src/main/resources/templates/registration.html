@@ -70,6 +70,13 @@
                        th:each="error: ${#fields.errors('passwordConfirm')}"
                        th:text="${error}">Validation error</p>
                 </div>
+                <div class="form-group" th:classappend="${#fields.hasErrors('cardNumber')}? 'has-error':''" >
+                    <label for="cardNumber" class="control-label">Card Number</label>
+                    <input id="cardNumber" type="text" class="form-control" th:field="*{cardNumber}"/>
+                    <p class="error-message"
+                       th:each="error: ${#fields.errors('cardNumber')}"
+                       th:text="${error}">Validation error</p>
+                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Sign Up</button>
                     <span>Already Signed Up? <a href="/" th:href="@{/login}"> Sign in</a></span>
