@@ -1,12 +1,14 @@
 package pl.mh.bookstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.BookDto;
 import pl.mh.bookstore.repository.BookRepository;
 
 import java.util.Collection;
 
+@Service
 public class BookServiceImpl implements BookService{
 
     @Autowired
@@ -15,10 +17,9 @@ public class BookServiceImpl implements BookService{
     public Book save(BookDto bookDto){
         Book book = new Book();
         book.setAuthor(bookDto.getAuthor());
-        book.setTitle(book.getTitle());
-        book.setPrice(book.getPrice());
-        book.setYear(book.getYear());
-        book.setBookCategory(book.getBookCategory());
+        book.setTitle(bookDto.getTitle());
+        book.setPrice(bookDto.getPrice());
+        book.setYear(bookDto.getYear());
         return bookRepository.save(book);
     }
 

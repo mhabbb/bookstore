@@ -7,5 +7,6 @@ public enum BookCategory {
     SF,
     ADVENTURE,
     ROMANCE,
-    FOREIGN
+    FOREIGN,
+    TODO
 }

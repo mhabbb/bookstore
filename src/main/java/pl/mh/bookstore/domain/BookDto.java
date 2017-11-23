@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -16,12 +17,9 @@ public class BookDto {
     @NotEmpty
     private String author;
 
-    @NotEmpty
+    @NotNull
     private double price;
 
-    @NotEmpty
+    @NotNull
     private int year;
-
-    @NotEmpty
-    private BookCategory bookCategory;
 }

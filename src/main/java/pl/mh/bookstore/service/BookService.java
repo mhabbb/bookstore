@@ -8,7 +8,6 @@ import pl.mh.bookstore.repository.BookRepository;
 
 import java.util.Collection;
 
-@Service
 public interface BookService {
     Book save(BookDto bookDto);
     Collection<Book> findAllBooks();

@@ -1,7 +1,6 @@
 package pl.mh.bookstore.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.mh.bookstore.domain.BookDto;
 import pl.mh.bookstore.service.BookService;
 import pl.mh.bookstore.service.UserService;
-import pl.mh.bookstore.service.UserServiceImpl;
 
 import javax.validation.Valid;
 
@@ -26,13 +24,13 @@ public class AdminController {
     @GetMapping("/admin/users")
     public String getAllUsers(Model model) {
         model.addAttribute("users", userService.findAllUsers());
-        return "usersList";
+        return "adminUsersList";
     }
 
     @GetMapping("/admin/books")
     public String getAllBooks(Model model){
         model.addAttribute("books", bookService.findAllBooks());
-        return "booksList";
+        return "adminBooksList";
     }
 
 
