@@ -6,8 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.BookDto;
+import pl.mh.bookstore.domain.User;
 import pl.mh.bookstore.service.BookService;
 import pl.mh.bookstore.service.UserService;
 
@@ -41,13 +44,13 @@ public class AdminController {
 
     @GetMapping("/admin/book/add")
     public String showAddBookForm(){
-        return "addBook";
+        return "adminAddBook";
     }
 
     @PostMapping("/admin/book/add")
     public String addBook(@ModelAttribute("book") @Valid BookDto bookDto, BindingResult result){
         if(result.hasErrors()){
-            return "addBook";
+            return "adminAddBook";
         }
 
         bookService.save(bookDto);
@@ -55,11 +58,19 @@ public class AdminController {
     }
 
 
-    /*@GetMapping("/admin/users/{login}")
+    @GetMapping("/admin/users/delete/{login}")
     public String deleteUser(@PathVariable("login") String login, Model model){
-        userService.deleteUserByLogin(login);
-        model.addAttribute("usersList", userService.findAll());
-        return "usersList";
-    }*/
+        User user = userService.findByLogin(login);
+        userService.deleteUser(user);
+        model.addAttribute("usersList", userService.findAllUsers());
+        return "redirect:/admin/users";
+    }
 
+    @GetMapping("/admin/book/delete/{id}")
+    public String deleteBook(@PathVariable("id") long id, Model model){
+        Book book = bookService.findById(id);
+        bookService.deleteBook(book);
+        model.addAttribute("booksList", bookService.findAllBooks());
+        return "redirect:/admin/books";
+    }
 }

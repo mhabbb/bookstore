@@ -10,4 +10,5 @@ public interface UserService {
     Collection<User> findAllUsers();
     User findByLogin(String login);
     User findByEmail(String email);
+    void deleteUser(User user);
 }

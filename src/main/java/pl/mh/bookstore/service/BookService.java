@@ -11,4 +11,6 @@ import java.util.Collection;
 public interface BookService {
     Book save(BookDto bookDto);
     Collection<Book> findAllBooks();
+    Book findById(long id);
+    void deleteBook(Book book);
 }

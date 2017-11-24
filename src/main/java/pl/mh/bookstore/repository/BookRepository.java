@@ -6,4 +6,5 @@ import pl.mh.bookstore.domain.Book;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long>{
+    Book findById(long id);
 }
