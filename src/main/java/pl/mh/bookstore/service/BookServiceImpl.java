@@ -24,6 +24,15 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
+    public Book editBook(Book book, BookDto bookDto) {
+        book.setAuthor(bookDto.getAuthor());
+        book.setTitle(bookDto.getTitle());
+        book.setPrice(bookDto.getPrice());
+        book.setYear(bookDto.getYear());
+        return bookRepository.save(book);
+    }
+
+    @Override
     public Collection<Book> findAllBooks() {
         return bookRepository.findAll();
     }

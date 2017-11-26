@@ -23,7 +23,7 @@ public class Book {
 
     private double price;
 
-    private double year;
+    private int year;
 
     @Enumerated(EnumType.STRING)
     private BookCategory bookCategory = BookCategory.TODO;

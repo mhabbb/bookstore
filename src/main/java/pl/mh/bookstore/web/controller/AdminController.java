@@ -52,11 +52,25 @@ public class AdminController {
         if(result.hasErrors()){
             return "adminAddBook";
         }
-
         bookService.save(bookDto);
         return "redirect:/admin/books";
     }
 
+    @GetMapping("/admin/book/{id}/edit")
+    public String showEditBookForm(@PathVariable("id") Long id, Model model){
+        model.addAttribute("book", bookService.findById(id));
+        return "adminEditBook";
+    }
+
+    @PostMapping("/admin/book/{id}/edit")
+    public String editBook(@Valid BookDto bookDto, @PathVariable("id") Long id, BindingResult result, Model model){
+        Book currBook = bookService.findById(id);
+        model.addAttribute("book", bookService.editBook(currBook, bookDto));
+        if(result.hasErrors()){
+            return "adminEditBook";
+        }
+        return "redirect:/admin/books";
+    }
 
     @GetMapping("/admin/users/delete/{login}")
     public String deleteUser(@PathVariable("login") String login, Model model){

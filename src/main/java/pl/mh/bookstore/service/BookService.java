@@ -1,6 +1,7 @@
 package pl.mh.bookstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.BookDto;
@@ -13,4 +14,5 @@ public interface BookService {
     Collection<Book> findAllBooks();
     Book findById(long id);
     void deleteBook(Book book);
+    Book editBook(Book book, BookDto bookDto);
 }
