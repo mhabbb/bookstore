@@ -28,7 +28,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile group: 'org.webjars', name: 'bootstrap', version: '3.3.5'
+	compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
 	runtime('mysql:mysql-connector-java')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
