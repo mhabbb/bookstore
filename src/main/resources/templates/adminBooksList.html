@@ -15,7 +15,6 @@
         <tr>
             <th>Author</th>
             <th>Title</th>
-            <th>Year</th>
             <th>Category</th>
             <th>Price</th>
             <th colspan="2" style="text-align:center;">Options</th>
@@ -23,7 +22,6 @@
         <tr th:each="book : ${books}">
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
-            <td th:text="${book.year}"></td>
             <td th:text="${book.bookCategory}"></td>
             <td th:text="${book.price}"></td>
             <td> <a type="submit" class="btn btn-primary btn-xs pull-right" th:href="@{'/admin/book/delete/' + ${book.id}}">Delete</a></td>

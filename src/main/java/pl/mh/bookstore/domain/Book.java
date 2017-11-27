@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @AllArgsConstructor
@@ -21,9 +22,7 @@ public class Book {
 
     private String author;
 
-    private double price;
-
-    private int year;
+    private BigDecimal price;
 
     @Enumerated(EnumType.STRING)
     private BookCategory bookCategory = BookCategory.TODO;

@@ -15,14 +15,12 @@
         <tr>
             <th>Author</th>
             <th>Title</th>
-            <th>Year</th>
             <th>Category</th>
             <th>Price</th>
         </tr>
         <tr th:each="book : ${books}">
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
-            <td th:text="${book.year}"></td>
             <td th:text="${book.bookCategory}"></td>
             <td th:text="${book.price}"></td>
         </tr>

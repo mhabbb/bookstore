@@ -19,7 +19,6 @@ public class BookServiceImpl implements BookService{
         book.setAuthor(bookDto.getAuthor());
         book.setTitle(bookDto.getTitle());
         book.setPrice(bookDto.getPrice());
-        book.setYear(bookDto.getYear());
         return bookRepository.save(book);
     }
 
@@ -28,7 +27,6 @@ public class BookServiceImpl implements BookService{
         book.setAuthor(bookDto.getAuthor());
         book.setTitle(bookDto.getTitle());
         book.setPrice(bookDto.getPrice());
-        book.setYear(bookDto.getYear());
         return bookRepository.save(book);
     }
 

@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -18,8 +19,5 @@ public class BookDto {
     private String author;
 
     @NotNull
-    private double price;
-
-    @NotNull
-    private int year;
+    private BigDecimal price;
 }

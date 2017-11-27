@@ -41,13 +41,6 @@
                        th:each="error: ${#fields.errors('price')}"
                        th:text="${error}">Validation error</p>
                 </div>
-                <div class="form-group" th:classappend="${#fields.hasErrors('year')}? 'has-error':''" >
-                    <label for="year" class="control-label">Year</label>
-                    <input id="year" class="form-control" th:field="*{year}"/>
-                    <p class="error-message"
-                       th:each="error: ${#fields.errors('year')}"
-                       th:text="${error}">Validation error</p>
-                </div>
                 <!--<div class="form-group">
                     <label class="control-label">Book category</label>
                     <select class="form-control" name="size" th:field="*{{bookCategory}}">
