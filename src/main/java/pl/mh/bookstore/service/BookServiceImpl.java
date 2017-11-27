@@ -14,12 +14,15 @@ public class BookServiceImpl implements BookService{
     @Autowired
     private BookRepository bookRepository;
 
-    public Book save(BookDto bookDto){
+    public Book save(BookDto bookDto) throws RuntimeException{
         Book book = new Book();
-        book.setAuthor(bookDto.getAuthor());
-        book.setTitle(bookDto.getTitle());
-        book.setPrice(bookDto.getPrice());
-        return bookRepository.save(book);
+        if(bookRepository.findAllByAuthorAndTitle(bookDto.getAuthor(), bookDto.getTitle())==null) {
+            book.setAuthor(bookDto.getAuthor());
+            book.setTitle(bookDto.getTitle());
+            book.setPrice(bookDto.getPrice());
+            return bookRepository.save(book);
+        }
+        else throw new RuntimeException("This book already exists in database");
     }
 
     @Override

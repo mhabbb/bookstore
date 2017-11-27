@@ -1,11 +1,9 @@
 package pl.mh.bookstore.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.stereotype.Service;
+
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.BookDto;
-import pl.mh.bookstore.repository.BookRepository;
+
 
 import java.util.Collection;
 

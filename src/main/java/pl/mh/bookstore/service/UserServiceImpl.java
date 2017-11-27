@@ -1,7 +1,6 @@
 package pl.mh.bookstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Role;
@@ -12,6 +11,7 @@ import pl.mh.bookstore.repository.UserRepository;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
+
 
 @Service
 public class UserServiceImpl implements UserService{
