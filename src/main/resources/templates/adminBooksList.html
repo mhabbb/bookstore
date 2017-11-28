@@ -17,17 +17,20 @@
             <th>Title</th>
             <th>Category</th>
             <th>Price</th>
-            <th colspan="2" style="text-align:center;">Options</th>
+            <th>Options</th>
         </tr>
         <tr th:each="book : ${books}">
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
             <td th:text="${book.bookCategory}"></td>
             <td th:text="${book.price}"></td>
-            <td> <a type="submit" class="btn btn-primary btn-xs pull-right" th:href="@{'/admin/book/delete/' + ${book.id}}">Delete</a></td>
-            <td> <a type="submit" class="btn btn-primary btn-xs pull-right" th:href="@{'/admin/book/'+${book.id} + '/edit'}">Edit</a></td>
+            <td> <a type="submit" class="btn btn-danger btn-xs" th:href="@{'/admin/book/delete/' + ${book.id}}">Delete</a>
+                    <a type="submit" class="btn btn-success btn-xs" th:href="@{'/admin/book/'+${book.id} + '/edit'}">Edit</a>
+            </td>
         </tr>
     </table>
+    <a href="adminAddBook.html" class="btn btn-success btn-xs" th:href="@{/admin/book/add}">Add Book</a>
+    <a href="adminUsersList.html" class="btn btn-default btn-xs" th:href="@{/admin/users}">Show users</a>
 </div>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
