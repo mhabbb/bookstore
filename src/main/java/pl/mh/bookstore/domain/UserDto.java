@@ -2,9 +2,11 @@ package pl.mh.bookstore.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -30,9 +32,7 @@ public class UserDto {
     @NotEmpty
     private String emailConfirm;
 
-    @NotEmpty
     private String cardNumber;
-
 
     public String getPassword() {
         return password;
