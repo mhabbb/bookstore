@@ -17,12 +17,14 @@
             <th>Title</th>
             <th>Category</th>
             <th>Price</th>
+            <th>Action</th>
         </tr>
         <tr th:each="book : ${books}">
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
             <td th:text="${book.bookCategory}"></td>
             <td th:text="${book.price}"></td>
+            <!--Add to cart + redirecting to that-->
         </tr>
     </table>
 </div>

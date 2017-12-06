@@ -6,13 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @GetMapping("/user")
-    public String userPanel(){
-        return "user";
-    }
-
     @GetMapping("/")
     public String guestPage(){
         return "index";

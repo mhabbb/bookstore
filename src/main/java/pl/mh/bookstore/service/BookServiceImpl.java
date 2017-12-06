@@ -47,4 +47,11 @@ public class BookServiceImpl implements BookService{
     public void deleteBook(Book book) {
         bookRepository.delete(book);
     }
+
+    @Override
+    public boolean isInStock(Long id) {
+        Book book = bookRepository.findById(id);
+        if(book.getQuantity()>0) return true;
+        else return false;
+    }
 }
