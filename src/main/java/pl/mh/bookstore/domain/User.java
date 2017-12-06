@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Or;
+
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
-<<<<<<< Updated upstream
-=======
+
 import java.util.List;
 import java.util.Set;
->>>>>>> Stashed changes
 
 @Entity
 @AllArgsConstructor
@@ -39,15 +37,12 @@ public class User {
 
     private String cardNumber;
 
-<<<<<<< Updated upstream
-=======
     //@OneToMany(mappedBy = "user")
     //private Set<Order> orders;
 
     @OneToMany(mappedBy = "user")
     private Set<Review> reviewsList;
 
->>>>>>> Stashed changes
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
