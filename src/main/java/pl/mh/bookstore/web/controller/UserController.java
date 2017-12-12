@@ -11,12 +11,12 @@ import pl.mh.bookstore.service.BookService;
 public class UserController {
 
     @Autowired
-    private BookService bookService;
+    BookService bookService;
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/user/books")
     public String getAllBooks(Model model){
-        model.addAttribute("books", bookService.findAllBooks());
+        model.addAttribute("books", bookService.bookList());
         return "booksList";
     }
 

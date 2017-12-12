@@ -40,8 +40,9 @@ public class User {
     //@OneToMany(mappedBy = "user")
     //private Set<Order> orders;
 
-    @OneToMany(mappedBy = "user")
+    /*@OneToMany(mappedBy = "user")
     private Set<Review> reviewsList;
+    */
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

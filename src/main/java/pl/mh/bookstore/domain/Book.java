@@ -17,26 +17,11 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-
-public class Book extends AuditEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class Book extends Product{
 
     private String title;
 
     private String author;
-
-    private Integer quantity;
-
-    private BigDecimal price;
-
-    private String description;
-
-    @OneToMany(mappedBy = "book")
-    private Set<Review> reviewsList;
-
 
     @Enumerated(EnumType.STRING)
     private BookCategory bookCategory = BookCategory.TODO;

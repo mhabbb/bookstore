@@ -33,5 +33,5 @@ public class Order extends AuditEntity {
 
     private BigDecimal summaryPrice;
 
-    private Set<Book> books;
+    //private Set<Book> books;
 }

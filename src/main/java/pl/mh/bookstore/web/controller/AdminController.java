@@ -32,10 +32,9 @@ public class AdminController {
 
     @GetMapping("/admin/books")
     public String getAllBooks(Model model){
-        model.addAttribute("books", bookService.findAllBooks());
+        model.addAttribute("books", bookService.bookList());
         return "adminBooksList";
     }
-
 
     @ModelAttribute("book")
     public BookDto addBookDTO(){
@@ -58,13 +57,13 @@ public class AdminController {
 
     @GetMapping("/admin/book/{id}/edit")
     public String showEditBookForm(@PathVariable("id") Long id, Model model){
-        model.addAttribute("book", bookService.findById(id));
+        model.addAttribute("book", bookService);
         return "adminEditBook";
     }
 
     @PostMapping("/admin/book/{id}/edit")
     public String editBook(@Valid BookDto bookDto, @PathVariable("id") Long id, BindingResult result, Model model){
-        Book currBook = bookService.findById(id);
+        Book currBook = bookService.findOne(id);
         model.addAttribute("book", bookService.editBook(currBook, bookDto));
         if(result.hasErrors()){
             return "adminEditBook";
@@ -82,9 +81,9 @@ public class AdminController {
 
     @GetMapping("/admin/book/delete/{id}")
     public String deleteBook(@PathVariable("id") long id, Model model){
-        Book book = bookService.findById(id);
+        Book book = bookService.findOne(id);
         bookService.deleteBook(book);
-        model.addAttribute("booksList", bookService.findAllBooks());
+        model.addAttribute("booksList", bookService.bookList());
         return "redirect:/admin/books";
     }
 }
