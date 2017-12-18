@@ -17,6 +17,7 @@
             <th>Title</th>
             <th>Category</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th>Options</th>
         </tr>
         <tr th:each="book : ${books}">
@@ -24,6 +25,7 @@
             <td th:text="${book.title}"></td>
             <td th:text="${book.bookCategory}"></td>
             <td th:text="${book.price}"></td>
+            <td th:text="${book.quantity}"></td>
             <td> <a type="submit" class="btn btn-danger btn-xs" th:href="@{'/admin/book/delete/' + ${book.id}}">Delete</a>
                     <a type="submit" class="btn btn-success btn-xs" th:href="@{'/admin/book/'+${book.id} + '/edit'}">Edit</a>
             </td>

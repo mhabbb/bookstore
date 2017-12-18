@@ -42,16 +42,23 @@
                        th:each="error: ${#fields.errors('price')}"
                        th:text="${error}">Validation error</p>
                 </div>
-                <!--<div class="form-group">
-                    <label class="control-label">Book category</label>
-                    <select class="form-control" name="size" th:field="*{{bookCategory}}">
-                        <option th:each="bookCategory : ${T(pl.mh.bookstore.domain.BookCategory).values()}"
-                                th:value="${{bookCategory}}"
-                                th:selected="${bookCategory == T(pl.mh.bookstore.domain.BookCategory)}"
-                                th:text="${bookCategory.bookCategory}">
+                <div class="form-group" th:classappend="${#fields.hasErrors('quantity')}? 'has-error':''" >
+                    <label for="quantity" class="control-label">Price</label>
+                    <input id="quantity" class="form-control" th:field="*{quantity}"/>
+                    <p class="error-message"
+                       th:each="error: ${#fields.errors('quantity')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+                <div class="form-group">
+                    <label th:for="bookCategory">Category</label>
+                    <select th:field="*{bookCategory}">
+                        <option th:each="bookCategory : ${bookCategories}"
+                                th:text="${bookCategory.getName()}"
+                                th:value="${bookCategory}">
                         </option>
                     </select>
-                </div>-->
+                </div>
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
