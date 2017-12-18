@@ -1,4 +1,4 @@
-package pl.mh.bookstore.domain;
+package pl.mh.bookstore.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -2,7 +2,7 @@ package pl.mh.bookstore.service;
 
 
 import pl.mh.bookstore.domain.Book;
-import pl.mh.bookstore.domain.BookDto;
+import pl.mh.bookstore.dto.BookDto;
 
 
 import java.util.Collection;

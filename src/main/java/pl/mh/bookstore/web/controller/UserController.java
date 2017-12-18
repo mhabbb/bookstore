@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.Rating;
-import pl.mh.bookstore.domain.RatingDto;
+import pl.mh.bookstore.dto.RatingDto;
 import pl.mh.bookstore.service.BookService;
 import pl.mh.bookstore.service.RatingService;
 

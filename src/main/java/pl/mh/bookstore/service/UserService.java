@@ -1,7 +1,7 @@
 package pl.mh.bookstore.service;
 
 import pl.mh.bookstore.domain.User;
-import pl.mh.bookstore.domain.UserDto;
+import pl.mh.bookstore.dto.UserDto;
 
 import java.util.Collection;
 

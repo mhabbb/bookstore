@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.mh.bookstore.domain.Book;
-import pl.mh.bookstore.domain.BookDto;
+import pl.mh.bookstore.domain.BookCategory;
+import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.domain.User;
 import pl.mh.bookstore.service.BookService;
 import pl.mh.bookstore.service.UserService;
@@ -36,19 +37,19 @@ public class AdminController {
         return "adminBooksList";
     }
 
-
     @ModelAttribute("book")
     public BookDto addBookDTO(){
         return new BookDto();
     }
 
     @GetMapping("/admin/book/add")
-    public String showAddBookForm(){
+    public String showAddBookForm(Model model){
+        model.addAttribute("bookCategories", BookCategory.values());
         return "adminAddBook";
     }
 
     @PostMapping("/admin/book/add")
-    public String addBook(@ModelAttribute("book") @Valid BookDto bookDto, BindingResult result){
+    public String addBook(@ModelAttribute("book") @Valid BookDto bookDto, BindingResult result, Model model){
         if(result.hasErrors()){
             return "adminAddBook";
         }
@@ -59,6 +60,7 @@ public class AdminController {
     @GetMapping("/admin/book/{id}/edit")
     public String showEditBookForm(@PathVariable("id") Long id, Model model){
         model.addAttribute("book", bookService.findById(id));
+        model.addAttribute("bookCategories", BookCategory.values());
         return "adminEditBook";
     }
 

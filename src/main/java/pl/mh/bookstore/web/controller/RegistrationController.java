@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.mh.bookstore.domain.User;
-import pl.mh.bookstore.domain.UserDto;
-import pl.mh.bookstore.repository.UserRepository;
+import pl.mh.bookstore.dto.UserDto;
 import pl.mh.bookstore.service.UserService;
 
 import javax.validation.Valid;

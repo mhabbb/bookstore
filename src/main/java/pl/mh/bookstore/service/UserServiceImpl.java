@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Role;
 import pl.mh.bookstore.domain.User;
-import pl.mh.bookstore.domain.UserDto;
+import pl.mh.bookstore.dto.UserDto;
 import pl.mh.bookstore.repository.UserRepository;
 
 import java.time.LocalDate;
