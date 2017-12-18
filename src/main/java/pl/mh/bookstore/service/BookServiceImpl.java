@@ -1,13 +1,11 @@
 package pl.mh.bookstore.service;
 
-import org.hibernate.validator.constraints.Mod11Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Book;
-import pl.mh.bookstore.domain.BookDto;
+import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.repository.BookRepository;
 
-import java.io.Serializable;
 import java.util.Collection;
 
 @Service
@@ -23,6 +21,8 @@ public class BookServiceImpl implements BookService{
             book.setAuthor(bookDto.getAuthor());
             book.setTitle(bookDto.getTitle());
             book.setPrice(bookDto.getPrice());
+            book.setBookCategory(bookDto.getBookCategory());
+            book.setQuantity(bookDto.getQuantity());
             return bookRepository.save(book);
         }
         else throw new RuntimeException("This book already exists in database");
@@ -33,6 +33,8 @@ public class BookServiceImpl implements BookService{
         book.setAuthor(bookDto.getAuthor());
         book.setTitle(bookDto.getTitle());
         book.setPrice(bookDto.getPrice());
+        book.setBookCategory(bookDto.getBookCategory());
+        book.setQuantity(bookDto.getQuantity());
         return bookRepository.save(book);
     }
 
