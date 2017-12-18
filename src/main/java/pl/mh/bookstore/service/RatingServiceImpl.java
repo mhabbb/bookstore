@@ -12,10 +12,9 @@ public class RatingServiceImpl implements RatingService {
     @Autowired
     RatingRepository ratingRepository;
 
-    public Rating save(RatingDto ratingDto, Book book) {
+    public Rating save(RatingDto ratingDto) {
         Rating rating = new Rating();
         rating.setRate(ratingDto.getRate());
-        rating.setBook(book);
         return ratingRepository.save(rating);
     }
 }

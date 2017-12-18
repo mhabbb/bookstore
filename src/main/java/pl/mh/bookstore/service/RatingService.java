@@ -6,5 +6,5 @@ import pl.mh.bookstore.domain.Rating;
 import pl.mh.bookstore.domain.RatingDto;
 
 public interface RatingService {
-    Rating save(RatingDto ratingDto, Book book);
+    Rating save(RatingDto ratingDto);
 }

@@ -21,5 +21,7 @@ public class BookDto {
     @NotNull
     private BigDecimal price;
 
+    private BookCategory bookCategory;
+
     private List<Rating> ratingList = new ArrayList<>();
 }

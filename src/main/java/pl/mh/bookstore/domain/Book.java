@@ -29,5 +29,5 @@ public class Book extends AuditEntity {
     private List<Rating> ratings;
 
     @Enumerated(EnumType.STRING)
-    private BookCategory bookCategory = BookCategory.TODO;
+    private BookCategory bookCategory;
 }
