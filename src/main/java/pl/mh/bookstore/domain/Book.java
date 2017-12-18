@@ -26,7 +26,7 @@ public class Book extends AuditEntity {
     private String description;
 
     @OneToMany(mappedBy = "book")
-    private List<Review> reviewsList;
+    private List<Rating> ratings;
 
     @Enumerated(EnumType.STRING)
     private BookCategory bookCategory = BookCategory.TODO;

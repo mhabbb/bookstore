@@ -6,6 +6,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,4 +20,6 @@ public class BookDto {
 
     @NotNull
     private BigDecimal price;
+
+    private List<Rating> ratingList = new ArrayList<>();
 }

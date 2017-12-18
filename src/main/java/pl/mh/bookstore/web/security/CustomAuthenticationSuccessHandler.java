@@ -22,7 +22,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
         String adminTargetUrl = "/admin";
-        String userTargetUrl = "/user";
+        String userTargetUrl = "/books";
         String accessDeniedUrl = "/accessDenied";
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if(roles.contains("ROLE_ADMIN")) {

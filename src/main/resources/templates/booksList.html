@@ -9,22 +9,31 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
 </head>
 <body>
+
 <div class="container">
-    <h1>List of Books</h1>
-    <table class="table table-hover">
-        <tr>
-            <th>Author</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Price</th>
-        </tr>
-        <tr th:each="book : ${books}">
-            <td th:text="${book.author}"></td>
-            <td th:text="${book.title}"></td>
-            <td th:text="${book.bookCategory}"></td>
-            <td th:text="${book.price}"></td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" th:each="book : ${books}">
+            <span class="thumbnail">
+                <img src="http://placehold.it/300x400" alt="..."/>
+                <span th:text="${book.author} + ' - ' + ${book.title} "></span>
+                <div class="ratings">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                </div>
+      			<div class="row">
+      				<div class="col-md-6 col-sm-6">
+      					<p class="price" th:text="${book.price}"></p>
+      				</div>
+      				<div class="col-md-6 col-sm-6">
+      					<button class="btn btn-success right" >Buy</button>
+      				</div>
+                </div>
+            </span>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
