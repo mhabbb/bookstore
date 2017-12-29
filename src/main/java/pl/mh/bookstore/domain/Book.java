@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Book extends AuditEntity {
+
     private String title;
 
     private String author;
@@ -27,7 +27,7 @@ public class Book extends AuditEntity {
     private String description;
 
     @OneToMany(mappedBy = "book")
-    private List<Rating> ratings;
+    private List<Review> reviews;
 
     @Enumerated(EnumType.STRING)
     private BookCategory bookCategory;

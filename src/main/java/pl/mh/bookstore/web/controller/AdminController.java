@@ -49,7 +49,7 @@ public class AdminController {
     }
 
     @PostMapping("/admin/book/add")
-    public String addBook(@ModelAttribute("book") @Valid BookDto bookDto, BindingResult result, Model model){
+    public String addBook(@ModelAttribute("book") @Valid BookDto bookDto, BindingResult result){
         if(result.hasErrors()){
             return "adminAddBook";
         }

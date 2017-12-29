@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 import pl.mh.bookstore.domain.BookCategory;
-import pl.mh.bookstore.domain.Rating;
+import pl.mh.bookstore.domain.Review;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -27,5 +27,5 @@ public class BookDto {
 
     private BookCategory bookCategory;
 
-    private List<Rating> ratingList = new ArrayList<>();
+    private List<Review> reviewList = new ArrayList<>();
 }

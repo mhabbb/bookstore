@@ -28,7 +28,7 @@
       					<p class="price" th:text="${book.price}"></p>
       				</div>
       				<div class="col-md-6 col-sm-6">
-      					<button class="btn btn-success right" >Buy</button>
+      					<a href="bookDetails.html" class="btn btn-success btn-xs" th:href="@{'/books/'+${book.id}}">Buy</a>
       				</div>
                 </div>
             </span>

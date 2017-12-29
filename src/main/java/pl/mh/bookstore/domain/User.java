@@ -36,10 +36,10 @@ public class User {
     private String cardNumber;
 
     @OneToMany(mappedBy = "user")
-    private List<Rating> ratings = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
 
-    @OneToMany(mappedBy = "orders")
-    private List<Order> orders = new ArrayList<>();
+    /*@OneToMany(mappedBy = "orders")
+    private List<Order> orders = new ArrayList<>();*/
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

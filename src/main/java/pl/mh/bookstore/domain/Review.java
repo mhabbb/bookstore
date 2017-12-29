@@ -4,20 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-public class Rating {
+public class Review {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private Double rate;
+
+    private String text;
 
     @ManyToOne
     private Book book;
