@@ -23,6 +23,7 @@ public class BookServiceImpl implements BookService{
             book.setPrice(bookDto.getPrice());
             book.setBookCategory(bookDto.getBookCategory());
             book.setQuantity(bookDto.getQuantity());
+            book.setDescription(bookDto.getDescription());
             return bookRepository.save(book);
         }
         else throw new RuntimeException("This book already exists in database");

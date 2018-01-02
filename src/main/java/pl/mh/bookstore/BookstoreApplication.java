@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"pl.mh.bookstore.service", "pl.mh.bookstore.web.security", "pl.mh.bookstore.web.controller"})
+@ComponentScan({"pl.mh.bookstore.service", "pl.mh.bookstore.web.config", "pl.mh.bookstore.web.controller"})
 @EnableJpaRepositories("pl.mh.bookstore.repository")
 @EntityScan("pl.mh.bookstore.domain")
 public class BookstoreApplication {

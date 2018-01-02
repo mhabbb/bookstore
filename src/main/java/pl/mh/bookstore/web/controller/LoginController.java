@@ -1,21 +1,22 @@
 package pl.mh.bookstore.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import pl.mh.bookstore.service.BookService;
 
 @Controller
 public class LoginController {
 
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @GetMapping("/user")
-    public String userPanel(){
-        return "user";
-    }
+    @Autowired
+    BookService bookService;
 
-    @GetMapping("/")
-    public String guestPage(){
-        return "index";
+    @GetMapping("/books")
+    public String guestPage(Model model){
+        model.addAttribute("books", bookService.findAllBooks());
+        return "booksList";
     }
 
     @GetMapping("/login")

@@ -42,7 +42,7 @@
                        th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group" th:classappend="${#fields.hasErrors('quantity')}? 'has-error':''" >
-                    <label for="quantity" class="control-label">Price</label>
+                    <label for="quantity" class="control-label">Quantity</label>
                     <input id="quantity" class="form-control" th:field="*{quantity}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('quantity')}"
@@ -56,6 +56,13 @@
                         th:value="${bookCategory}">
                         </option>
                     </select>
+                </div>
+                <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error':''" >
+                    <label for="description" class="control-label">Description</label>
+                    <input id="description" class="form-control" th:field="*{description}"/>
+                    <p class="error-message"
+                       th:each="error: ${#fields.errors('description')}"
+                       th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Submit</button>
