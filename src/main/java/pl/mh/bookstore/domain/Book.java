@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class Book extends AuditEntity {
     private String description;
 
     @OneToMany(mappedBy = "book")
-    private List<Review> reviews;
+    private List<Review> reviews = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private BookCategory bookCategory;

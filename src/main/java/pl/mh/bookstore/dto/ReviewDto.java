@@ -3,6 +3,7 @@ package pl.mh.bookstore.dto;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
+import pl.mh.bookstore.domain.Book;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -16,4 +17,8 @@ public class ReviewDto {
 
     @NotEmpty
     private String text;
+
+    private String author;
+
+    private Book book;
 }

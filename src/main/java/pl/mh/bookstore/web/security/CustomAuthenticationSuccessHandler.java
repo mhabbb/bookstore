@@ -1,4 +1,4 @@
-package pl.mh.bookstore.web.config;
+package pl.mh.bookstore.web.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

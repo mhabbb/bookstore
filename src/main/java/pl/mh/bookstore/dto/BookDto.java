@@ -34,6 +34,4 @@ public class BookDto {
 
     @Length(max = 5000)
     private String description;
-
-    private List<Review> reviewList = new ArrayList<>();
 }

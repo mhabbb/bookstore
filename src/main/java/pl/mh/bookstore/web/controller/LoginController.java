@@ -30,4 +30,9 @@ public class LoginController {
         return "admin";
     }
 
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
 }

@@ -1,4 +1,4 @@
-package pl.mh.bookstore.web.config;
+package pl.mh.bookstore.web.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,13 +8,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import pl.mh.bookstore.service.UserDetailsServiceImpl;
+import pl.mh.bookstore.service.UserService;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsServiceImpl;
+    private UserService userService;
 
     @Autowired
     CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                         "/webjars/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/books/**").permitAll()
-                .antMatchers("/index").permitAll()
+                .antMatchers("/").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -53,8 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
         auth.inMemoryAuthentication().withUser("MH").password("admin").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
     }
 
 }
