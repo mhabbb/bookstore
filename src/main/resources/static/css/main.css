@@ -55,3 +55,6 @@ add-to-cart .btn-qty {
 
 .add-to-cart .btn { border-radius: 0; }
 
+.navbar-brand{
+    height: 50px;
+}
