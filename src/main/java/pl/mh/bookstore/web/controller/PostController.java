@@ -48,7 +48,6 @@ public class PostController {
         Book book = bookService.findById(id);
         model.addAttribute("bookDetails", book);
         model.addAttribute("review", new ReviewDto());
-
         return "bookDetails";
     }
 }
