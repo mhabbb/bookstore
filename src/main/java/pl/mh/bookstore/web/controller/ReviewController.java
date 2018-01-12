@@ -22,7 +22,7 @@ import javax.validation.Valid;
 
 @PreAuthorize("hasRole('ROLE_USER')")
 @Controller
-public class PostController {
+public class ReviewController {
     @Autowired
     private BookService bookService;
 

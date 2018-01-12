@@ -16,12 +16,11 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+                    <a class="navbar-brand" href="#" th:href="@{/books}">Home</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="#">Search</a></li>
-                        <li><a href="#" th:href="@{/books}">Products</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" sec:authorize="isAnonymous()">
                             <li><a href="#" th:href="@{/registration}">Register</a></li>

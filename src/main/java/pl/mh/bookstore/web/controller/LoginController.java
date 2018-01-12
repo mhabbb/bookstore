@@ -10,15 +10,6 @@ import pl.mh.bookstore.service.BookService;
 @Controller
 public class LoginController {
 
-    @Autowired
-    BookService bookService;
-
-    @GetMapping("/books")
-    public String guestPage(Model model){
-        model.addAttribute("books", bookService.findAllBooks());
-        return "booksList";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -29,10 +20,4 @@ public class LoginController {
     public String adminPanel(){
         return "admin";
     }
-
-    @GetMapping("/")
-    public String index(){
-        return "index";
-    }
-
 }
