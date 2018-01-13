@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/body.css}"/>
 </head>
 <body>
 <div th:include="fragments/header :: header"></div>
@@ -33,6 +34,11 @@
                 </div>
             </span>
         </div>
+        <ul class="nav nav-pills">
+            <li class="nav-item" th:each="i : ${#numbers.sequence(0, (books.totalPages)-1)}">
+                <a th:href="@{books(page=${i})}" th:text="${i}" class="nav-link"></a>
+            </li>
+        </ul>
     </div>
 </div>
 

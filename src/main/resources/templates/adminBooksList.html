@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/body.css}"/>
 </head>
 <body>
+<div th:include="fragments/header :: header"></div>
 <div class="container">
     <h1>List of Books</h1>
     <table class="table table-hover table-responsive" >
@@ -34,8 +36,6 @@
     <a href="adminAddBook.html" class="btn btn-success btn-xs" th:href="@{/admin/book/add}">Add Book</a>
     <a href="adminUsersList.html" class="btn btn-default btn-xs" th:href="@{/admin/users}">Show users</a>
 </div>
-
-<div th:include="fragments/footer :: footer"></div>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
