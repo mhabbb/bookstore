@@ -17,7 +17,7 @@ public class BookServiceImpl implements BookService{
     @Autowired
     private BookRepository bookRepository;
 
-    private static final int PAGE_SIZE = 24;
+    private static final int PAGE_SIZE = 12;
 
     public Book save(BookDto bookDto) throws RuntimeException{
 
@@ -27,6 +27,7 @@ public class BookServiceImpl implements BookService{
             book.setTitle(bookDto.getTitle());
             book.setPrice(bookDto.getPrice());
             book.setBookCategory(bookDto.getBookCategory());
+            book.setRate(0.0);
             book.setQuantity(bookDto.getQuantity());
             book.setDescription(bookDto.getDescription());
             return bookRepository.save(book);
@@ -50,9 +51,14 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public Page<Book> getPageOfBooks(Integer pageNumber, String option) {
+    public Page<Book> searchBooks(Integer pageNumber, String option) {
         PageRequest request = new PageRequest(pageNumber, PAGE_SIZE, Sort.Direction.DESC, option);
         return bookRepository.findAll(request);
+    }
+
+    @Override
+    public Page<Book> viewBooks(Integer pageNumber){
+        return bookRepository.findAll(new PageRequest(pageNumber, PAGE_SIZE));
     }
 
     @Override

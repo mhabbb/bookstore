@@ -14,15 +14,22 @@ public class HomeController {
     private BookService bookService;
 
     @GetMapping("/books")
-    public String guestPage(Model model){
-        model.addAttribute("books", bookService.findAllBooks());
+    public String booksPage(Model model, @RequestParam(defaultValue = "0") Integer page){
+        model.addAttribute("books", bookService.viewBooks(page));
         return "booksList";
     }
 
-    @GetMapping("/books")
+    @GetMapping("/")
+    public String homePage(Model model){
+        model.addAttribute("bestRated", bookService.findAllBooks());
+        model.addAttribute("mostPopular", bookService.findAllBooks());
+        return "index";
+    }
+
+    /*@GetMapping("/books")
     public String getBooks(@RequestParam(value = "page") int page, @RequestParam(value = "option") String option, Model model){
         model.addAttribute("booksList", bookService.getPageOfBooks(page, option));
         return "booksList";
-    }
+    }*/
 
 }

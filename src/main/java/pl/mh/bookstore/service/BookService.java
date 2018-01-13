@@ -14,5 +14,6 @@ public interface BookService {
     Book findById(long id);
     void deleteBook(Book book);
     Book editBook(Book book, BookDto bookDto);
-    Page<Book> getPageOfBooks(Integer pageNumber, String option);
+    Page<Book> searchBooks(Integer pageNumber, String option);
+    Page<Book> viewBooks(Integer pageNumber);
 }

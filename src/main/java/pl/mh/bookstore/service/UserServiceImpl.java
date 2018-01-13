@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService{
         user.setCardNumber(userDto.getCardNumber());
         user.setCreatedDate(LocalDate.now());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        user.setRoles(Arrays.asList(new Role("USER")));
         return userRepository.save(user);
     }
 

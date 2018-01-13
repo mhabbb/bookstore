@@ -28,6 +28,8 @@ public class BookDto {
 
     private Integer quantity;
 
+    private Double rate;
+
     private BookCategory bookCategory;
 
     private MultipartFile bookImage;

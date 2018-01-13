@@ -28,6 +28,8 @@ public class Book extends AuditEntity {
 
     private BigDecimal price;
 
+    private Double rate;
+
     @Column(columnDefinition = "TEXT")
     private String description;
 
