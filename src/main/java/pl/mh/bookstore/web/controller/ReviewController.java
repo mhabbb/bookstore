@@ -7,10 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.Review;
 import pl.mh.bookstore.domain.User;
@@ -37,17 +34,17 @@ public class ReviewController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         reviewDto.setAuthor(username);
         reviewDto.setBook(book);
-        reviewDto.setRate(3.0);
         reviewService.save(reviewDto, book);
         if(result.hasErrors()) return "bookDetails";
         return "redirect:/books/{id}";
     }
 
     @GetMapping("/books/{id}")
-    public String bookDetails(@PathVariable("id")Long id, Model model){
+    public String bookDetails(@PathVariable("id")Long id, Model model, @RequestParam(defaultValue = "0") Integer page){
         Book book = bookService.findById(id);
         model.addAttribute("bookDetails", book);
         model.addAttribute("review", new ReviewDto());
+        model.addAttribute("reviews", reviewService.getPageOfReviews(page, book));
         return "bookDetails";
     }
 }

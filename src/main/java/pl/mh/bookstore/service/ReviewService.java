@@ -7,5 +7,5 @@ import pl.mh.bookstore.dto.ReviewDto;
 
 public interface ReviewService {
     Review save(ReviewDto reviewDto, Book book);
-    Page<Review> getPageOfReviews(Integer pageNumber, String option);
+    Page<Review> getPageOfReviews(Integer pageNumber, Book book);
 }

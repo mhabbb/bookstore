@@ -16,6 +16,7 @@ public class HomeController {
     @GetMapping("/books")
     public String booksPage(Model model, @RequestParam(defaultValue = "0") Integer page){
         model.addAttribute("books", bookService.viewBooks(page));
+        model.addAttribute("currentPage", page);
         return "booksList";
     }
 

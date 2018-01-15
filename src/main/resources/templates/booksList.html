@@ -34,13 +34,15 @@
                 </div>
             </span>
         </div>
-        <ul class="nav nav-pills">
-            <li class="nav-item" th:each="i : ${#numbers.sequence(0, (books.totalPages)-1)}">
-                <a th:href="@{books(page=${i})}" th:text="${i}" class="nav-link"></a>
-            </li>
-        </ul>
     </div>
+    <ul class="nav nav-pills">
+        <li class="nav-item" th:each="i : ${#numbers.sequence(0, (books.totalPages)-1)}">
+            <a th:href="@{books(page=${i})}" th:text="${i}" class="nav-link"
+               th:classappend="(${currentPage}==${i})? 'active' : ''"></a>
+        </li>
+    </ul>
 </div>
+
 
 <div th:include="fragments/footer :: footer"></div>
 

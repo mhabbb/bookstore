@@ -11,6 +11,8 @@ import pl.mh.bookstore.domain.Review;
 import pl.mh.bookstore.dto.ReviewDto;
 import pl.mh.bookstore.repository.ReviewRepository;
 
+import java.time.LocalDate;
+
 @Service
 public class ReviewServiceImpl implements ReviewService {
     @Autowired
@@ -19,7 +21,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Autowired
     UserService userService;
 
-    private static final int PAGE_SIZE = 10;
+    private static final int PAGE_SIZE = 4;
 
 
     public Review save(ReviewDto reviewDto, Book book) {
@@ -27,13 +29,15 @@ public class ReviewServiceImpl implements ReviewService {
         review.setRate(reviewDto.getRate());
         review.setText(reviewDto.getText());
         review.setUser(userService.currentUser());
+        review.setDate(reviewDto.getDate());
         review.setBook(book);
+        review.setAuthor(reviewDto.getAuthor());
         return reviewRepository.save(review);
     }
 
     @Override
-    public Page<Review> getPageOfReviews(Integer pageNumber, String option) {
-        PageRequest request = new PageRequest(pageNumber, PAGE_SIZE, Sort.Direction.DESC, option);
-        return reviewRepository.findAll(request);
+    public Page<Review> getPageOfReviews(Integer pageNumber, Book book) {
+        PageRequest request = new PageRequest(pageNumber, PAGE_SIZE);
+        return reviewRepository.findAllByBook(request, book);
     }
 }

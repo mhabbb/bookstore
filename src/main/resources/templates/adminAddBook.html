@@ -23,29 +23,29 @@
                 </p>
 
                 <div class="form-group" th:classappend="${#fields.hasErrors('author')}? 'has-error':''" >
-                    <label for="author" class="control-label">Author</label>
-                    <input id="author" class="form-control" th:field="*{author}"/>
+                    <label>Author</label>
+                    <input type="text" class="form-control" th:field="*{author}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('author')}"
                        th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group" th:classappend="${#fields.hasErrors('title')}? 'has-error':''" >
-                    <label for="title" class="control-label">Title</label>
-                    <input id="title" class="form-control" th:field="*{title}"/>
+                    <label>Title</label>
+                    <input type="text" class="form-control" th:field="*{title}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('title')}"
                        th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group" th:classappend="${#fields.hasErrors('price')}? 'has-error':''" >
-                    <label for="price" class="control-label">Price</label>
-                    <input id="price" class="form-control" th:field="*{price}"/>
+                    <label>Price</label>
+                    <input type="text" class="form-control" th:field="*{price}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('price')}"
                        th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group" th:classappend="${#fields.hasErrors('quantity')}? 'has-error':''" >
-                    <label for="quantity" class="control-label">Quantity</label>
-                    <input id="quantity" class="form-control" th:field="*{quantity}"/>
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" th:field="*{quantity}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('quantity')}"
                        th:text="${error}">Validation error</p>
@@ -60,8 +60,8 @@
                     </select>
                 </div>
                 <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error':''" >
-                    <label for="description" class="control-label">Description</label>
-                    <input id="description" class="form-control" th:field="*{description}"/>
+                    <label>Description</label>
+                    <input type="text" class="form-control" th:field="*{description}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('description')}"
                        th:text="${error}">Validation error</p>

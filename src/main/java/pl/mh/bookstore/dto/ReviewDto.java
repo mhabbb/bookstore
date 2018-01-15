@@ -7,6 +7,7 @@ import pl.mh.bookstore.domain.Book;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,4 +22,6 @@ public class ReviewDto {
     private String author;
 
     private Book book;
+
+    private LocalDate date = LocalDate.now();
 }

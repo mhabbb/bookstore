@@ -13,25 +13,31 @@
 
 <div class="container">
     <div th:fragment="header">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" th:href="@{/books}">Home</a>
+                    <a class="navbar-brand" th:href="@{/}">Home</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="#">Search</a></li>
+                        <li><a th:href="@{/books}">Products</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" sec:authorize="isAnonymous()">
-                            <li><a href="#" th:href="@{/registration}">Register</a></li>
-                            <li><a href="#" th:href="@{/login}">Login</a></li>
-                            <li><button class="btn btn-success" type="button" data-toggle="modal">
+                            <li><a th:href="@{/registration}">Register</a></li>
+                            <li><a th:href="@{/login}">Login</a></li>
+                            <li><button class="btn btn-success" style="height:50px" type="button" data-toggle="modal">
                                 <i class="fa fa-shopping-cart">0 PLN</i></button></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right" sec:authorize="isAuthenticated()">
+                    <ul class="nav navbar-nav navbar-right" th:if="${#authorization.expression('hasRole(''USER'')')}">
                         <li><a href="#">Account Details</a></li>
-                        <li><button class="btn btn-success" type="button" data-toggle="modal">
-                            <i class="fa fa-shopping-cart"></i> 0 PLN </button></li>
+                        <li><a th:href="@{/logout}">Logout</a></li>
+                        <li><button class="btn btn-success" style="height:50px" type="button" data-toggle="modal">
+                            <i class="fa fa-shopping-cart"> 0 PLN </i></button></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                        <li><a th:href="@{/admin}">Admin Panel</a></li>
+                        <li><a th:href="@{/logout}">Logout</a></li>
                     </ul>
                 </div>
             </div>

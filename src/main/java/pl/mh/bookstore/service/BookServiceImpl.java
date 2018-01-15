@@ -9,8 +9,6 @@ import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.repository.BookRepository;
 
-import java.util.Collection;
-
 @Service
 public class BookServiceImpl implements BookService{
 
@@ -21,7 +19,7 @@ public class BookServiceImpl implements BookService{
 
     public Book save(BookDto bookDto) throws RuntimeException{
 
-        if(bookRepository.findAllByAuthorAndTitle(bookDto.getAuthor(), bookDto.getTitle())==null) {
+        if(bookRepository.findBookByAuthorAndTitle(bookDto.getAuthor(), bookDto.getTitle())==null) {
             Book book = new Book();
             book.setAuthor(bookDto.getAuthor());
             book.setTitle(bookDto.getTitle());

@@ -7,6 +7,7 @@ import pl.mh.bookstore.dto.BookDto;
 
 
 import java.util.Collection;
+import java.util.List;
 
 public interface BookService {
     Book save(BookDto bookDto);

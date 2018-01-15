@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -17,6 +19,10 @@ public class Review {
     private Double rate;
 
     private String text;
+
+    protected LocalDate date;
+
+    private String author;
 
     @ManyToOne
     private Book book;
