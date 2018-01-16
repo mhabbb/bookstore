@@ -1,4 +1,4 @@
-h1 {
+.main h1 {
     color: #78ab46;
 }
 
@@ -12,6 +12,10 @@ body {
 
 .error-message:first-letter {
     text-transform: capitalize;
+}
+
+.title h3{
+    margin-top: 0;
 }
 
 p{
@@ -53,11 +57,6 @@ add-to-cart .btn-qty {
     width: 52px;
     height: 46px;
 }
-
-h4 {
-    color: #78ab46;
-}
-
 .add-to-cart .btn { border-radius: 0; }
 
 .cart-button .btn-success {
@@ -97,4 +96,9 @@ h4 {
 .star-rating label:hover ~ label,
 .star-rating input[type=radio]:checked ~ label {
     color: #f2b600
+}
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
 }

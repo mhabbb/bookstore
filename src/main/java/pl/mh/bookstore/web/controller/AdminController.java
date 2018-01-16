@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.multipart.MultipartFile;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
@@ -46,13 +45,13 @@ public class AdminController {
     @GetMapping("/admin/book/add")
     public String showAddBookForm(Model model){
         model.addAttribute("bookCategories", BookCategory.values());
-        return "adminAddBook";
+        return "adminProcessBookForm";
     }
 
     @PostMapping("/admin/book/add")
     public String addBook(@ModelAttribute("book") @Valid BookDto bookDto, BindingResult result){
         if(result.hasErrors()){
-            return "adminAddBook";
+            return "adminProcessBookForm";
         }
         bookService.save(bookDto);
         return "redirect:/admin/books";
@@ -62,16 +61,13 @@ public class AdminController {
     public String showEditBookForm(@PathVariable("id") Long id, Model model){
         model.addAttribute("book", bookService.findById(id));
         model.addAttribute("bookCategories", BookCategory.values());
-        return "adminEditBook";
+        return "adminProcessBookForm";
     }
 
     @PostMapping("/admin/book/{id}/edit")
     public String editBook(@Valid BookDto bookDto, @PathVariable("id") Long id, BindingResult result, Model model){
         Book currBook = bookService.findById(id);
         model.addAttribute("book", bookService.editBook(currBook, bookDto));
-        if(result.hasErrors()){
-            return "adminAddBook";
-        }
         return "redirect:/admin/books";
     }
 

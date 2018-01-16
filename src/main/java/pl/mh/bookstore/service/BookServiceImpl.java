@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Book;
+import pl.mh.bookstore.domain.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.repository.BookRepository;
 
@@ -49,12 +50,6 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public Page<Book> searchBooks(Integer pageNumber, String option) {
-        PageRequest request = new PageRequest(pageNumber, PAGE_SIZE, Sort.Direction.DESC, option);
-        return bookRepository.findAll(request);
-    }
-
-    @Override
     public Page<Book> viewBooks(Integer pageNumber){
         return bookRepository.findAll(new PageRequest(pageNumber, PAGE_SIZE));
     }
@@ -67,5 +62,11 @@ public class BookServiceImpl implements BookService{
     @Override
     public void deleteBook(Book book) {
         bookRepository.delete(book);
+    }
+
+    @Override
+    public Page<Book> viewBooksByCategory(Integer pageNumber, BookCategory bookCategory) {
+        PageRequest pageRequest = new PageRequest(pageNumber, PAGE_SIZE);
+        return bookRepository.findAllByBookCategory(pageRequest, bookCategory);
     }
 }

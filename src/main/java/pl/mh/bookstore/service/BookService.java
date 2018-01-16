@@ -3,6 +3,7 @@ package pl.mh.bookstore.service;
 
 import org.springframework.data.domain.Page;
 import pl.mh.bookstore.domain.Book;
+import pl.mh.bookstore.domain.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
 
 
@@ -15,6 +16,6 @@ public interface BookService {
     Book findById(long id);
     void deleteBook(Book book);
     Book editBook(Book book, BookDto bookDto);
-    Page<Book> searchBooks(Integer pageNumber, String option);
+    Page<Book> viewBooksByCategory(Integer pageNumber, BookCategory bookCategory);
     Page<Book> viewBooks(Integer pageNumber);
 }

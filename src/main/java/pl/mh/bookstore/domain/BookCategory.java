@@ -11,8 +11,11 @@ public enum BookCategory {
     ADVENTURE("Adventure"),
     ROMANCE("Romance"),
     FOREIGN("Foreign"),
-    TODO("Temporary value for all");
-
+    HISTORICAL("Historical"),
+    ALL("Temporary value for all"),
+    SETBOOK("Set book"),
+    YOUNGADULT("Young adult"),
+    WAR("War");
     private final String name;
 
     BookCategory(String name) {

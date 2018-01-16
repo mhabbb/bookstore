@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 
@@ -26,13 +26,13 @@
                     <ul class="nav navbar-nav navbar-right" sec:authorize="isAnonymous()">
                             <li><a th:href="@{/registration}">Register</a></li>
                             <li><a th:href="@{/login}">Login</a></li>
-                            <li><button class="btn btn-success" style="height:50px" type="button" data-toggle="modal">
-                                <i class="fa fa-shopping-cart">0 PLN</i></button></li>
+                            <li><button class="btn btn-success" style="width: 70px;height:50px" type="button" data-toggle="modal">
+                                <i class="fa fa-shopping-cart"></i></button></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" th:if="${#authorization.expression('hasRole(''USER'')')}">
                         <li><a href="#">Account Details</a></li>
                         <li><a th:href="@{/logout}">Logout</a></li>
-                        <li><button class="btn btn-success" style="height:50px" type="button" data-toggle="modal">
+                        <li><button class="btn btn-success" style="width:70px;height:50px" type="button" data-toggle="modal">
                             <i class="fa fa-shopping-cart"> 0 PLN </i></button></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">

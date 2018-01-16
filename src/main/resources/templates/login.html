@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/body.css}"/>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <title>Login</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="col-md-6 col-md-offset-3">
             <form th:action="@{/login}" method="post">
 
-                <h1>Login</h1>
+                <h1 class="main">Login</h1>
                 <div class="form-group">
                     <label for="username">Login</label>
                     <input type="text" id="username" class="form-control" name="username" placeholder="Login"/>
@@ -45,8 +45,6 @@
         </div>
     </div>
 </div>
-
-<div th:include="fragments/footer :: footer"></div>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>

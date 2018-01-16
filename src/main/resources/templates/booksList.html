@@ -8,43 +8,63 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/body.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 <div th:include="fragments/header :: header"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-6" th:each="book : ${books}">
-            <span class="thumbnail">
-                <img src="http://placehold.it/300x400" alt="..."/>
-                <span th:text="${book.author} + ' - ' + ${book.title} "></span>
-                <div class="ratings">
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-      			<div class="row">
-      				<div class="col-md-6 col-sm-6">
-      					<p class="price" th:text="${book.price}"></p>
-      				</div>
-      				<div class="col-md-6 col-sm-6">
-      					<a href="bookDetails.html" class="btn btn-success btn-xs" th:href="@{'/books/'+${book.id}}">Buy</a>
-      				</div>
-                </div>
-            </span>
+        <div class="col-md-3">
+            <a class="list-group-item" th:href="@{'/books?category=ADVENTURE'}">Adventure</a>
+            <a class="list-group-item" th:href="@{'/books?category=CRIMINAL'}">Criminal</a>
+            <a class="list-group-item" th:href="@{'/books?category=DRAMA'}">Drama</a>
+            <a class="list-group-item" th:href="@{'/books?category=FOREIGN'}">Foreign</a>
+            <a class="list-group-item" th:href="@{'/books?category=HISTORICAL'}">Historical</a>
+            <a class="list-group-item" th:href="@{'/books?category=HORROR'}">Horror</a>
+            <a class="list-group-item" th:href="@{'/books?category=ROMANCE'}">Romance</a>
+            <a class="list-group-item" th:href="@{'/books?category=SF'}">Science-Fiction</a>
+            <a class="list-group-item" th:href="@{'/books?category=SETBOOK'}">Set Books</a>
+            <a class="list-group-item" th:href="@{'/books?category=YOUNGADULT'}">Young-adult</a>
+            <a class="list-group-item" th:href="@{'/books?category=WAR'}">War</a>
+        </div>
+        <div class="col-md-9">
+            <div class="col-md-4 col-sm-6" th:each="book : ${books}">
+                <span class="thumbnail">
+                    <img src="http://placehold.it/300x400" alt="..."/>
+                    <span th:text="${book.author} + ' - ' + ${book.title} "></span>
+                    <div class="ratings">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <p class="price" th:text="${book.price}"></p>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <a href="bookDetails.html" class="btn btn-success btn-xs pull-right"
+                               th:href="@{'/books/'+${book.id}}">Details</a>
+                        </div>
+                    </div>
+                </span>
+            </div>
         </div>
     </div>
-    <ul class="nav nav-pills">
-        <li class="nav-item" th:each="i : ${#numbers.sequence(0, (books.totalPages)-1)}">
-            <a th:href="@{books(page=${i})}" th:text="${i}" class="nav-link"
-               th:classappend="(${currentPage}==${i})? 'active' : ''"></a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-offset-3">
+            <div class="row">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" th:each="i : ${#numbers.sequence(0, (books.totalPages)-1)}">
+                        <a th:href="@{books(page=${i})}" th:text="${i}" class="nav-link"
+                           th:classappend="(${currentPage}==${i})? 'active' : ''"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-<div th:include="fragments/footer :: footer"></div>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>

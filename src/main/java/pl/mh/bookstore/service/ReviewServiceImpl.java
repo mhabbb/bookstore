@@ -21,7 +21,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Autowired
     UserService userService;
 
-    private static final int PAGE_SIZE = 4;
+    private static final int PAGE_SIZE = 10;
 
 
     public Review save(ReviewDto reviewDto, Book book) {
