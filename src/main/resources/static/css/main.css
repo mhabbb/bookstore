@@ -98,6 +98,10 @@ add-to-cart .btn-qty {
     color: #f2b600
 }
 
+.fit-to-image{
+    padding-right: 22px;
+}
+
 .row.display-flex {
     display: flex;
     flex-wrap: wrap;

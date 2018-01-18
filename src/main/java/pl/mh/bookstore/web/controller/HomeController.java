@@ -3,9 +3,12 @@ package pl.mh.bookstore.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.mh.bookstore.domain.BookCategory;
+import pl.mh.bookstore.configuration.EnumConverter;
+import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.service.BookService;
 
 @Controller
@@ -36,6 +39,11 @@ public class HomeController {
         model.addAttribute("books", bookService.viewBooksByCategory(page, bookCategory));
         model.addAttribute("bookCategories", BookCategory.values());
         return "booksList";
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder){
+        webDataBinder.registerCustomEditor(BookCategory.class, new EnumConverter<>(BookCategory.class));
     }
 
     /*@GetMapping("/books")

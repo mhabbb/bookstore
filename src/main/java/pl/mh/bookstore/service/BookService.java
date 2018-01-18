@@ -3,12 +3,8 @@ package pl.mh.bookstore.service;
 
 import org.springframework.data.domain.Page;
 import pl.mh.bookstore.domain.Book;
-import pl.mh.bookstore.domain.BookCategory;
+import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
-
-
-import java.util.Collection;
-import java.util.List;
 
 public interface BookService {
     Book save(BookDto bookDto);

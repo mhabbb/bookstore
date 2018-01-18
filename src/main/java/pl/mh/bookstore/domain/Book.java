@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Type;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.web.multipart.MultipartFile;
+import pl.mh.bookstore.domain.enums.BookCategory;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -36,6 +34,13 @@ public class Book extends AuditEntity {
     @OneToMany(mappedBy = "book")
     private List<Review> reviews = new ArrayList<>();
 
-    @Enumerated(EnumType.STRING)
     private BookCategory bookCategory;
+
+    public BookCategory getBookCategory() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(BookCategory bookCategory) {
+        this.bookCategory = bookCategory;
+    }
 }

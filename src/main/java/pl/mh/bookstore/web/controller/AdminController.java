@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.mh.bookstore.domain.Book;
-import pl.mh.bookstore.domain.BookCategory;
+import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.domain.User;
 import pl.mh.bookstore.service.BookService;

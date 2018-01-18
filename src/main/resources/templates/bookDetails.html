@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -14,10 +15,10 @@
 <div th:include="fragments/header :: header"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-        <img src="http://placehold.it/600x800" alt="..." class="image-responsive pull-right"/>
+        <div class="col-md-offset-1 col-md-5">
+            <img src="http://placehold.it/450x650" alt="..." class="image-responsive pull-right"/>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5 col-md-offset-right-1">
             <h2 style="margin-top: 0; font-size: 40px" th:text="${bookDetails.title}"></h2>
             <div class="row">
                 <div class="col-md-12">
@@ -25,34 +26,36 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 bottom-rule">
-                    <h2> <span th:text="${bookDetails.price}"> PLN</span></h2>
+                <div class="col-md-12">
+                    <h2><span th:text="${bookDetails.price}"> PLN</span></h2>
                 </div>
             </div>
             <div class="row add-to-cart">
                 <div class="col-md-3">
                     <button class="btn btn-lg btn-brand btn-full-width">Add to Cart</button>
                 </div>
-                    <div class="col-md-3">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                        <span class="label label-success">15 reviews</span>
-                    </div>
+                <div class="col-md-3" style="padding-left: 20px;">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                    <span class="label label-success">15 reviews</span>
+                </div>
             </div><!-- end row -->
             <div class="row">
                 <div class="col-md-12">
                     <h1>Post review</h1>
                     <form th:object="${review}" method="post">
                         <div class="form-group">
-                                <textarea class="form-control" rows="3" th:field="*{text}" sec:authorize="isAuthenticated()" placeholder="Comment">
-                                </textarea>
                                 <textarea class="form-control" rows="3" th:field="*{text}"
-                                          sec:authorize="isAnonymous()" placeholder="Please log in to write a comment">
+                                          sec:authorize="isAuthenticated()" placeholder="Comment">
                                 </textarea>
-                            <div class="star-rating pull-left" style="margin-top: 10px" sec:authorize="isAuthenticated()">
+                            <textarea class="form-control" rows="3" th:field="*{text}"
+                                      sec:authorize="isAnonymous()" placeholder="Please log in to write a comment">
+                                </textarea>
+                            <div class="star-rating pull-left" style="margin-top: 10px"
+                                 sec:authorize="isAuthenticated()">
                                 <input type="radio" id="star-1" th:value="5" th:field="*{rate}"/>
                                 <label for="star-1"><i class="active fa fa-star" aria-hidden="true"></i> </label>
                                 <input type="radio" id="star-2" th:value="4" th:field="*{rate}"/>
@@ -64,7 +67,9 @@
                                 <input type="radio" id="star-5" th:value="1" th:field="*{rate}"/>
                                 <label for="star-5"><i class="active fa fa-star" aria-hidden="true"></i> </label>
                             </div>
-                            <button type="submit" style="margin-top: 5px" class="btn btn-success pull-right" sec:authorize="isAuthenticated()">Submit</button>
+                            <button type="submit" style="margin-top: 5px" class="btn btn-success pull-right"
+                                    sec:authorize="isAuthenticated()">Submit
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -106,17 +111,15 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6" th:each="review : ${reviews}">
-                <div class="clearfix">
-                    <h5 class="pull-left"><span th:text="${review.author}"></span></h5>
-                    <p class="pull-right"><span th:text="${review.rate}"></span> </p>
-                    <p class="pull-right"><span th:text="${review.date}"></span> </p>
-                </div>
-                <p>
-                    <em th:text="${review.text}"></em>
-                </p>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-5" style="padding-left: 21.67px;">
+            <h2>Reviews</h2>
+            <div class="row" th:each="review : ${reviews}">
+                <h5 class="pull-left"><span th:text="${review.}"></span></h5>
+                <p class="pull-right"><span th:text="${review.rate}"></span></p>
+                <p class="pull-right"><span th:text="${review.date}"></span></p>
+                <p class="pull-left"><span th:text="${review.author}"></span> </p>
+                <em th:text="${review.text}"></em>
             </div>
         </div>
     </div>

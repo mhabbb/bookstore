@@ -55,7 +55,7 @@
                     <label th:for="bookCategory">Category</label>
                     <select th:field="*{bookCategory}">
                         <option th:each="bookCategory : ${bookCategories}"
-                                th:text="${bookCategory.getName()}"
+                                th:text="${bookCategory.name()}"
                         th:value="${bookCategory}">
                         </option>
                     </select>

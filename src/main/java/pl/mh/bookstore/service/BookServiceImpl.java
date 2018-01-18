@@ -3,10 +3,12 @@ package pl.mh.bookstore.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import pl.mh.bookstore.configuration.EnumConverter;
 import pl.mh.bookstore.domain.Book;
-import pl.mh.bookstore.domain.BookCategory;
+import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.repository.BookRepository;
 
@@ -69,4 +71,5 @@ public class BookServiceImpl implements BookService{
         PageRequest pageRequest = new PageRequest(pageNumber, PAGE_SIZE);
         return bookRepository.findAllByBookCategory(pageRequest, bookCategory);
     }
+
 }

@@ -5,14 +5,10 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
-import pl.mh.bookstore.domain.BookCategory;
-import pl.mh.bookstore.domain.Review;
+import pl.mh.bookstore.domain.enums.BookCategory;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter

@@ -7,10 +7,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import pl.mh.bookstore.configuration.EnumConverter;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.Review;
 import pl.mh.bookstore.domain.User;
+import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.dto.ReviewDto;
 import pl.mh.bookstore.service.BookService;
 import pl.mh.bookstore.service.ReviewService;
@@ -25,8 +28,6 @@ public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
-
-    private static final StringBuilder sb = new StringBuilder();
 
     @PostMapping("/books/{id}")
     public String rate(@PathVariable("id") Long id, @ModelAttribute("review") @Valid ReviewDto reviewDto, BindingResult result){
@@ -47,4 +48,5 @@ public class ReviewController {
         model.addAttribute("reviews", reviewService.getPageOfReviews(page, book));
         return "bookDetails";
     }
+
 }

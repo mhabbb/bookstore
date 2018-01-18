@@ -1,16 +1,12 @@
 package pl.mh.bookstore.configuration;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.dialect.SpringStandardDialect;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import pl.mh.bookstore.domain.BookCategory;
-
-import javax.annotation.PostConstruct;
 
 @Configuration
 public class ThymeleafConfig {

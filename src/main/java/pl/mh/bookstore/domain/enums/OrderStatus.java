@@ -1,4 +1,4 @@
-package pl.mh.bookstore.domain;
+package pl.mh.bookstore.domain.enums;
 
 public enum OrderStatus {
     SHIPPED("Shipped"),
