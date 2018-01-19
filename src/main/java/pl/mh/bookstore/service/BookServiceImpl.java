@@ -12,6 +12,8 @@ import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
 import pl.mh.bookstore.repository.BookRepository;
 
+import java.util.Set;
+
 @Service
 public class BookServiceImpl implements BookService{
 

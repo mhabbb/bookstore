@@ -6,6 +6,8 @@ import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.enums.BookCategory;
 import pl.mh.bookstore.dto.BookDto;
 
+import java.util.Set;
+
 public interface BookService {
     Book save(BookDto bookDto);
     Iterable<Book> findAllBooks();

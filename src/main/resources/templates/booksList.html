@@ -15,17 +15,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <a class="list-group-item" th:href="@{'/books?category=ADVENTURE'}">Adventure</a>
-            <a class="list-group-item" th:href="@{'/books?category=CRIMINAL'}">Criminal</a>
-            <a class="list-group-item" th:href="@{'/books?category=DRAMA'}">Drama</a>
-            <a class="list-group-item" th:href="@{'/books?category=FOREIGN'}">Foreign</a>
-            <a class="list-group-item" th:href="@{'/books?category=HISTORICAL'}">Historical</a>
-            <a class="list-group-item" th:href="@{'/books?category=HORROR'}">Horror</a>
-            <a class="list-group-item" th:href="@{'/books?category=ROMANCE'}">Romance</a>
-            <a class="list-group-item" th:href="@{'/books?category=SF'}">Science-Fiction</a>
-            <a class="list-group-item" th:href="@{'/books?category=SETBOOK'}">Set Books</a>
-            <a class="list-group-item" th:href="@{'/books?category=YOUNGADULT'}">Young-adult</a>
-            <a class="list-group-item" th:href="@{'/books?category=WAR'}">War</a>
+            <a class="list-group-item" th:href="@{'/books?category=adventure'}">Adventure</a>
+            <a class="list-group-item" th:href="@{'/books?category=criminal'}">Criminal</a>
+            <a class="list-group-item" th:href="@{'/books?category=drama'}">Drama</a>
+            <a class="list-group-item" th:href="@{'/books?category=foreign'}">Foreign</a>
+            <a class="list-group-item" th:href="@{'/books?category=historical'}">Historical</a>
+            <a class="list-group-item" th:href="@{'/books?category=horror'}">Horror</a>
+            <a class="list-group-item" th:href="@{'/books?category=romance'}">Romance</a>
+            <a class="list-group-item" th:href="@{'/books?category=sf'}">Science-Fiction</a>
+            <a class="list-group-item" th:href="@{'/books?category=setbook'}">Set Books</a>
+            <a class="list-group-item" th:href="@{'/books?category=youngadult'}">Young-adult</a>
+            <a class="list-group-item" th:href="@{'/books?category=war'}">War</a>
         </div>
         <div class="col-md-9">
             <div class="col-md-4 col-sm-6" th:each="book : ${books}">
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-left:30px;">
         <div class="col-md-offset-3">
             <div class="row">
                 <ul class="nav nav-pills">

@@ -30,17 +30,19 @@
                     <h2><span th:text="${bookDetails.price}"> PLN</span></h2>
                 </div>
             </div>
-            <div class="row add-to-cart">
-                <div class="col-md-3">
-                    <button class="btn btn-lg btn-brand btn-full-width">Add to Cart</button>
+            <div class="row">
+                <div class="col-md-2">
+                    <a class="btn btn-success btn-full-width"
+                       th:href="@{'/books/{id}/addProduct'(id=${bookDetails.id})}"
+                       th:if="${bookDetails.quantity}>0">Add to Cart</a>
                 </div>
-                <div class="col-md-3" style="padding-left: 20px;">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <div class="col-md-offset-1 col-md-3 star-rating" style="padding-left: 20px;">
                     <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                    <span class="label label-success">15 reviews</span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                    <span class="label label-success">0 reviews</span>
                 </div>
             </div><!-- end row -->
             <div class="row">
@@ -111,15 +113,15 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-offset-1 col-md-5" style="padding-left: 21.67px;">
+    <div class="col-md-offset-1 row col-md-10" style="margin-top:50px;">
+        <div class="panel panel-default">
             <h2>Reviews</h2>
-            <div class="row" th:each="review : ${reviews}">
-                <h5 class="pull-left"><span th:text="${review.}"></span></h5>
-                <p class="pull-right"><span th:text="${review.rate}"></span></p>
+            <div class="panel-heading" th:each="review : ${reviews}">
+                <strong><span th:text="${review.author}"></span></strong>
                 <p class="pull-right"><span th:text="${review.date}"></span></p>
-                <p class="pull-left"><span th:text="${review.author}"></span> </p>
-                <em th:text="${review.text}"></em>
+                <div class="panel-body">
+                    <p th:text="${review.text}"></p>
+                </div>
             </div>
         </div>
     </div>
