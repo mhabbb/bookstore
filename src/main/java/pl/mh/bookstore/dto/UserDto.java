@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -32,6 +33,7 @@ public class UserDto {
     @NotEmpty
     private String emailConfirm;
 
+    @Length(min = 16, max = 16)
     private String cardNumber;
 
     public String getPassword() {

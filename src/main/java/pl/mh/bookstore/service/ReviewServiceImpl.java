@@ -24,15 +24,19 @@ public class ReviewServiceImpl implements ReviewService {
     private static final int PAGE_SIZE = 10;
 
 
-    public Review save(ReviewDto reviewDto, Book book) {
+    public Review save(ReviewDto reviewDto, Book book) throws RuntimeException{
         Review review = new Review();
-        review.setRate(reviewDto.getRate());
-        review.setText(reviewDto.getText());
-        review.setUser(userService.currentUser());
-        review.setDate(reviewDto.getDate());
-        review.setBook(book);
-        review.setAuthor(reviewDto.getAuthor());
-        return reviewRepository.save(review);
+        if(reviewDto.getRate()!=null) {
+            review.setRate(reviewDto.getRate());
+            review.setText(reviewDto.getText());
+            review.setUser(userService.currentUser());
+            review.setDate(reviewDto.getDate());
+            review.setBook(book);
+            review.setAuthor(reviewDto.getAuthor());
+            return reviewRepository.save(review);
+        }
+        else throw new RuntimeException("Rate book to give full opinion");
+
     }
 
     @Override

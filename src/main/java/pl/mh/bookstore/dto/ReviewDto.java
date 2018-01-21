@@ -7,6 +7,7 @@ import pl.mh.bookstore.domain.Book;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 public class ReviewDto {
     @Min(1)
     @Max(5)
+    @NotNull
     private Double rate;
 
     @NotEmpty
