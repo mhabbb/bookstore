@@ -2,21 +2,23 @@ package pl.mh.bookstore.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
+import pl.mh.bookstore.domain.Payment;
 import pl.mh.bookstore.exception.NotEnoughProductsInStockException;
 import pl.mh.bookstore.service.BookService;
+import pl.mh.bookstore.service.PaymentServiceImpl;
 import pl.mh.bookstore.service.ShoppingCartService;
 
 @Controller
-public class ShoppingClassController {
+public class ShoppingCartController {
     @Autowired
     private ShoppingCartService shoppingCartService;
 
     @Autowired
     private BookService bookService;
-
 
     @GetMapping("/shoppingCart")
     public ModelAndView shoppingCart() {
@@ -39,13 +41,13 @@ public class ShoppingClassController {
     }
 
     @GetMapping("/shoppingCart/checkout")
-    public ModelAndView checkout() {
+    public String checkout(Model model) {
         try {
             shoppingCartService.checkout();
         } catch (NotEnoughProductsInStockException e) {
-            return shoppingCart().addObject("outOfStockMessage", e.getMessage());
+            model.addAttribute("exception", new NotEnoughProductsInStockException());
         }
-        return shoppingCart();
+        return "payment";
     }
 }
 

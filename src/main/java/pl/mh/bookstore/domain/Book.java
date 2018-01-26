@@ -34,6 +34,9 @@ public class Book extends AuditEntity {
     @OneToMany(mappedBy = "book")
     private List<Review> reviews = new ArrayList<>();
 
+    @ManyToMany
+    private List<Payment> payments = new ArrayList<>();
+
     private BookCategory bookCategory;
 
     public BookCategory getBookCategory() {

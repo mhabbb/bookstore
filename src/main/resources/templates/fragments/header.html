@@ -29,13 +29,13 @@
                             <li><a type="submit" class="btn btn-success" style="width: 70px;height:50px" th:href="@{/shoppingCart}" data-toggle="modal">
                                 <i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right" th:if="${#authorization.expression('hasRole(''USER'')')}">
+                    <ul class="nav navbar-nav navbar-right" sec:authorize="hasAuthority('USER')">
                         <li><a href="#">Account Details</a></li>
                         <li><a th:href="@{/logout}">Logout</a></li>
                         <li><a type="submit" class="btn btn-success" style="width:70px;height:50px" th:href="@{/shoppingCart}" data-toggle="modal">
                             <i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                    <ul class="nav navbar-nav navbar-right" sec:authorize="hasAuthority('ROLE_ADMIN')">
                         <li><a th:href="@{/admin}">Admin Panel</a></li>
                         <li><a th:href="@{/logout}">Logout</a></li>
                     </ul>

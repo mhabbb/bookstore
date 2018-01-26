@@ -4,14 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.Review;
+import pl.mh.bookstore.domain.User;
 import pl.mh.bookstore.dto.ReviewDto;
 import pl.mh.bookstore.repository.ReviewRepository;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {

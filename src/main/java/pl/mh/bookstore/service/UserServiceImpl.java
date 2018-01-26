@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.mh.bookstore.domain.Address;
 import pl.mh.bookstore.domain.Role;
 import pl.mh.bookstore.domain.User;
 import pl.mh.bookstore.dto.UserDto;
@@ -47,6 +48,28 @@ public class UserServiceImpl implements UserService{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public User currentUser() {
+        String username;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(principal instanceof UserDetails){
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        return userRepository.findByLogin(username);
+    }
+
+    @Override
+    public void addAddress() {
+        User user = currentUser();
+        Address address = new Address();
+        address.setAddress(address.getAddress());
+        address.setLocality(address.getLocality());
+        address.setZipCode(address.getZipCode());
+        userRepository.save(user);
+    }
+
     public User save(UserDto userDto){
         User user = new User();
         user.setLogin(userDto.getLogin());
@@ -56,28 +79,8 @@ public class UserServiceImpl implements UserService{
         user.setCardNumber(userDto.getCardNumber());
         user.setCreatedDate(LocalDate.now());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setRoles(Arrays.asList(new Role("USER")));
+        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
         return userRepository.save(user);
-    }
-
-    public boolean isAuthenticated() {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-
-        Authentication auth = securityContext.getAuthentication();
-
-        return auth != null && !(auth instanceof AnonymousAuthenticationToken) && auth.isAuthenticated();
-    }
-
-    @Override
-    public User currentUser() {
-        if (!isAuthenticated())
-            return null;
-
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-
-        Authentication auth = securityContext.getAuthentication();
-
-        return userRepository.findByLogin(auth.getName());
     }
 
     @Override

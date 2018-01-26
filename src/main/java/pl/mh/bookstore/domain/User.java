@@ -38,6 +38,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Review> reviews = new ArrayList<>();
 
+    @Embedded
+    private Address address;
+
+    @OneToMany(mappedBy = "user")
+    private List<Payment> paymentsList = new ArrayList<>();
+
     /*@OneToMany(mappedBy = "orders")
     private List<Order> orders = new ArrayList<>();*/
 

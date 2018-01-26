@@ -45,11 +45,4 @@ public class HomeController {
     public void initBinder(WebDataBinder webDataBinder){
         webDataBinder.registerCustomEditor(BookCategory.class, new EnumConverter<>(BookCategory.class));
     }
-
-    /*@GetMapping("/books")
-    public String getBooks(@RequestParam(value = "page") int page, @RequestParam(value = "option") String option, Model model){
-        model.addAttribute("booksList", bookService.getPageOfBooks(page, option));
-        return "booksList";
-    }*/
-
 }

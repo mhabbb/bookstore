@@ -1,6 +1,7 @@
 package pl.mh.bookstore.service;
 
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.userdetails.User;
 import pl.mh.bookstore.domain.Book;
 import pl.mh.bookstore.domain.Review;
 import pl.mh.bookstore.dto.ReviewDto;

@@ -51,8 +51,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             if(book.getQuantity() < entry.getValue()) throw new NotEnoughProductsInStockException();
             entry.getKey().setQuantity(book.getQuantity() - entry.getValue());
         }
-        bookRepository.save(books.keySet());
-        books.clear();
     }
 
     @Override
