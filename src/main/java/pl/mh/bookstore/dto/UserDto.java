@@ -2,6 +2,7 @@ package pl.mh.bookstore.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,50 +28,14 @@ public class UserDto {
     @NotNull(message = "password doesn't match")
     private String passwordConfirm;
 
-    @NotEmpty
+    @NotEmpty @Email
     private String email;
 
-    @NotEmpty
+    @NotEmpty @Email
     private String emailConfirm;
 
     @Length(min = 16, max = 16)
     private String cardNumber;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-        passwordCheck();
-    }
-
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
-
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
-        passwordCheck();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-        emailCheck();
-    }
-
-    public String getEmailConfirm() {
-        return emailConfirm;
-    }
-
-    public void setEmailConfirm(String emailConfirm) {
-        this.emailConfirm = emailConfirm;
-        emailCheck();
-    }
 
     private void passwordCheck(){
          if(this.password==null | this.passwordConfirm==null) return;
