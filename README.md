@@ -1,4 +1,4 @@
-# bookstore
+# Bookstore
 
 Allows registered users to purchase and mark products.
 Made only for teaching purposes as my first Spring application thus it may contain some bugs. 
